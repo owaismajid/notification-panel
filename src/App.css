@@ -2,7 +2,19 @@
 
 .btn-notify{
   border: none;
-  color: lightcoral;
+  color: dodgerblue;
   background-color: transparent;
   font-size: 1.2em;
+  padding: 5px;
+  cursor: pointer;
+}
+
+
+.panel-notify{
+  background-color: #4442;
+  width: 360px;
+  height: 460px;
+}
+.panel-notify:focus{
+  outline: 1px solid #eee;
 }

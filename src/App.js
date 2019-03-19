@@ -11,10 +11,13 @@ class App extends Component {
   panelBlurHandle = () => { this.setState({ isPanelVisible: false }) }
   showPanel(){
     return this.state.isPanelVisible ?
-    <Panle
-    panelref={ this.refPanel }
-    onPanelBlur={ this.panelBlurHandle.bind(this) }
-    /> : "" 
+      <Panle
+      panelref={ this.refPanel }
+      onPanelBlur={ this.panelBlurHandle.bind(this) }
+      >
+        <h1>GOOD</h1> 
+      </Panle>
+      : "" 
   }
   
   /**@todo REMOVE!!~! */
@@ -26,6 +29,7 @@ class App extends Component {
     return (
       <div className="App">
         <button
+        disabled = { this.state.isPanelVisible }
         className="btn-notify"
         onClick={ this.clickHandle }
         >
@@ -39,15 +43,6 @@ class App extends Component {
 }
 
 export default App;
-
-
-const style = {
-  width: "200px",
-  height: "400px",
-  backgroundColor: "red"
-}
-
-
 class Panle extends Component{
   componentDidMount(){
     this.props.panelref.current.focus();
@@ -56,7 +51,8 @@ class Panle extends Component{
     return (
       <div 
       tabIndex="123"
-      style={ style }
+      className="panel-notify"
+      // style={{width:100, height:100}}
       onBlur={ this.props.onPanelBlur }
       ref={ this.props.panelref }> 
         { this.props.children }
